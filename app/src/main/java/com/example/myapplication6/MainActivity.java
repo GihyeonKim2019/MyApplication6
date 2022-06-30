@@ -10,7 +10,9 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
@@ -20,7 +22,6 @@ import java.util.Arrays;
 import java.util.List;
 
 
-// 성애성애
 public class MainActivity extends AppCompatActivity {
     private ViewPager2 viewPager2;
 
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         fragments.add(Fragment1.newInstance(0));
         fragments.add(Fragment2.newInstance(1));
         fragments.add(Fragment3.newInstance(2));
+
 
         viewPager2 = (ViewPager2) findViewById(R.id.viewPager2_container);
 
@@ -51,5 +53,12 @@ public class MainActivity extends AppCompatActivity {
 
             }
         }).attach();
+    }
+    public void onButton1Clicked(View v) {
+        Toast.makeText(this,"전화 걸기", Toast.LENGTH_LONG).show();
+    }
+
+    public void onButton2Clicked(View v) {
+        Toast.makeText(this,"문자 보내기", Toast.LENGTH_LONG).show();
     }
 }
