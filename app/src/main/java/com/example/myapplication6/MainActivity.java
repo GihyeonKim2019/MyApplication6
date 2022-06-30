@@ -61,4 +61,5 @@ public class MainActivity extends AppCompatActivity {
     public void onButton2Clicked(View v) {
         Toast.makeText(this,"문자 보내기", Toast.LENGTH_LONG).show();
     }
+
 }
