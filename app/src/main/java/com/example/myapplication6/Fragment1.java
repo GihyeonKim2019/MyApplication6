@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
+//juseok
 public class Fragment1 extends Fragment {
     public static Fragment1 newInstance(int number) {
         Fragment1 fragment1 = new Fragment1();
