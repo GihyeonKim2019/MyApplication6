@@ -44,7 +44,7 @@ public class Fragment1 extends Fragment {
         String[] strPhone = {"010-1234-5678", "010-2345-6789", "010-4455-6677", "010-3941-9805"};
         int nDatCnt=0;
         ArrayList<ItemData> oData = new ArrayList<>();
-        for (int i=0; i<40; ++i)
+        for (int i=0; i<60; ++i)
         {
             ItemData oItem = new ItemData();
             oItem.Name = strPhone[nDatCnt];
