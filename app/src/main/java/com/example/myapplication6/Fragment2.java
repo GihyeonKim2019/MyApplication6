@@ -66,7 +66,15 @@ public class Fragment2 extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return LayoutInflater.from(inflater.getContext()).inflate(R.layout.fragment2, container, false);
+        View view = inflater.inflate(R.layout.fragment2, container, false);
+
+        gv = (GridView)view.findViewById(R.id.gridView);
+
+        adapter = new CustomAdapter(getActivity(),data);
+
+        gv.setAdapter(adapter);
+
+        return view;
     }
 
 
