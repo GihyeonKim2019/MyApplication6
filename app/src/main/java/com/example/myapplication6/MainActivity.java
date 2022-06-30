@@ -63,12 +63,9 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this,"문자 보내기", Toast.LENGTH_LONG).show();
     }
 
-<<<<<<< HEAD
-=======
     public void onButton3Clicked(View v) {
         Intent intent = new Intent(this, DrawActivity.class);
         startActivity(intent);
     }
 
->>>>>>> seongae
 }
