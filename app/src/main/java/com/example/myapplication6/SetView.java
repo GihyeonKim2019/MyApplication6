@@ -26,7 +26,7 @@ public class SetView extends View {
         canvas.drawPath(path, paint);
     }
 
-    public boolean onToucnEvent(MotionEvent event) {
+    public boolean onTouchEvent(MotionEvent event) {
        x = (int)event.getX();
        y = (int)event.getY();
 
