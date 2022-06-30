@@ -2,15 +2,19 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    >
+
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Fragment3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        android:id="@+id/showXY"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="XY 좌표 표시 공간"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
