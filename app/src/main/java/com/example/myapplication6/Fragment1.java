@@ -10,9 +10,13 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+<<<<<<< HEAD
 
 import java.util.ArrayList;
 
+=======
+//juseok
+>>>>>>> 255416224c878908344dc9332df43364462f8f6f
 public class Fragment1 extends Fragment {
     private ListView m_oListView = null;
 
