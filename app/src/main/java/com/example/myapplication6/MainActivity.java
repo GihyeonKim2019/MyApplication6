@@ -19,6 +19,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+
+// 성애성애
 public class MainActivity extends AppCompatActivity {
     private ViewPager2 viewPager2;
 
