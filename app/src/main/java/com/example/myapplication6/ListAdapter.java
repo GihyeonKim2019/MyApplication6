@@ -2,12 +2,17 @@ package com.example.myapplication6;
 
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.myapplication6.ItemData;
 
@@ -59,6 +64,32 @@ public class ListAdapter extends BaseAdapter
 
         TextView oTextName = (TextView) convertView.findViewById(R.id.textTitle);
         TextView oTextPhone = (TextView) convertView.findViewById(R.id.textDate);
+
+
+        Button button1 = (Button) convertView.findViewById(R.id.button);
+
+        button1.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(view.getContext(), m_oData.get(position).Name + "님에게 전화 연결...", Toast.LENGTH_SHORT).show();
+
+
+                Intent intentx = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+m_oData.get(position).PhoneNumber));
+                view.getContext().startActivity(intentx);
+
+            }
+        });
+/*
+        cmdArea.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(view.getContext(), "Right", Toast.LENGTH_SHORT).show();
+            }
+        });
+*/
+
+
+
 
         oTextName.setText(m_oData.get(position).Name);
         oTextPhone.setText(m_oData.get(position).PhoneNumber);

@@ -25,12 +25,27 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private ViewPager2 viewPager2;
+    private TabLayout tabLayout;
+
+    private int[] tabIcons = {
+            R.drawable.ic_baseline_contacts_24,
+            R.drawable.ic_baseline_collections_24,
+            R.drawable.ic_baseline_create_24
+    };
+
+
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        TabLayout tabLayout = findViewById(R.id.tabLayout);
+        tabLayout = findViewById(R.id.tabLayout);
+
+
 
         ArrayList<Fragment> fragments = new ArrayList<>();
         fragments.add(Fragment1.newInstance(0));
@@ -38,23 +53,51 @@ public class MainActivity extends AppCompatActivity {
         fragments.add(Fragment3.newInstance(2));
 
 
+
+        //tabLayout.getTabAt(0).setIcon(R.drawable.ic_baseline_contacts_24);
+        //tabLayout.getTabAt(1).setIcon(R.drawable.ic_baseline_collections_24);
+        //tabLayout.getTabAt(2).setIcon(R.drawable.ic_baseline_create_24);
+
+
         viewPager2 = (ViewPager2) findViewById(R.id.viewPager2_container);
 
         ViewPager2Adapter viewPager2Adapter = new ViewPager2Adapter(this, fragments);
         viewPager2.setAdapter(viewPager2Adapter);
 
+
+
         final List<String> tabElement = Arrays.asList("Tab1","Tab2","Tab3");
+
+
 
         new TabLayoutMediator(tabLayout, viewPager2, new TabLayoutMediator.TabConfigurationStrategy() {
             @Override
             public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
+
                 TextView textView = new TextView(MainActivity.this);
                 textView.setText(tabElement.get(position));
-                tab.setCustomView(textView);
+
+                tab.setIcon(tabIcons[position]);
+
 
             }
         }).attach();
+
+
+
+
+
+
+
+
     }
+
+    private void setupTabIcon() {
+        tabLayout.getTabAt(0).setIcon(tabIcons[0]);
+        tabLayout.getTabAt(1).setIcon(tabIcons[1]);
+        tabLayout.getTabAt(2).setIcon(tabIcons[2]);
+    }
+
     public void onButton1Clicked(View v) {
         Toast.makeText(this,"전화 걸기", Toast.LENGTH_LONG).show();
     }
@@ -67,5 +110,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, DrawActivity.class);
         startActivity(intent);
     }
+
 
 }

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -51,15 +52,20 @@ public class Fragment1 extends Fragment {
 
         {
             ItemData oItem = new ItemData();
-            oItem.Name = strPhone[nDatCnt];
-            oItem.PhoneNumber = strName[nDatCnt++];
+            oItem.Name = strName[nDatCnt];
+            oItem.PhoneNumber = strPhone[nDatCnt++];
             oData.add(oItem);
             if (nDatCnt >= strName.length) nDatCnt = 0;
         }
 
         m_oListView = (ListView) view.findViewById(R.id.listView);
+
         ListAdapter oAdapter = new ListAdapter(oData);
+
         m_oListView.setAdapter(oAdapter);
+
+
+
 
         return view;
     }
