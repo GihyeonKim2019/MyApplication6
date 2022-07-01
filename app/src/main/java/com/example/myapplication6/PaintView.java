@@ -81,8 +81,8 @@ public class PaintView extends View {
         invalidate();
     }
 
-    public void set1_to_red() {
-        currentColor = Color.RED;
+    public void set1_to_black() {
+        currentColor = Color.BLACK;
     }
 
     public void set1_color(int t){

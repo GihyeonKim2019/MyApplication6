@@ -36,7 +36,7 @@ public class DrawActivity  extends AppCompatActivity {
         colorPickerView.setColorListener(new ColorEnvelopeListener() {
             @Override
             public void onColorSelected(ColorEnvelope envelope, boolean fromUser) {
-                colorTextView.setText(envelope.getHexCode());
+                //colorTextView.setText(envelope.getHexCode());
                 colorView.setBackgroundColor(envelope.getColor());
                 paintView.set1_color(envelope.getColor());
             }
@@ -72,8 +72,8 @@ public class DrawActivity  extends AppCompatActivity {
         getWindowManager().getDefaultDisplay().getRealMetrics(metrics);
         paintView.init(metrics);
     }
-    public void change_to_red(View v) {
-        paintView.set1_to_red();
+    public void change_to_black(View v) {
+        paintView.set1_to_black();
 
     }
 

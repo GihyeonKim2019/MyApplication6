@@ -20,6 +20,10 @@
             android:onClick="onButton3Clicked"
             android:text="그림 그리러 고고씽~" />
 
+        <GridView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
     </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
