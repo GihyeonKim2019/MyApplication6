@@ -45,6 +45,7 @@ public class Fragment1 extends Fragment {
 
         String[] strName = {"박강우", "김기현", "김성혁", "김성애"};
         String[] strPhone = {"010-1234-5678", "010-2345-6789", "010-4455-6677", "010-3941-9805"};
+        int[] intProfileImage = {R.drawable.emoji_1, R.drawable.emoji_2, R.drawable.emoji_3, R.drawable.emoji_4};
         int nDatCnt=0;
         ArrayList<ItemData> oData = new ArrayList<>();
 
@@ -53,7 +54,10 @@ public class Fragment1 extends Fragment {
         {
             ItemData oItem = new ItemData();
             oItem.Name = strName[nDatCnt];
-            oItem.PhoneNumber = strPhone[nDatCnt++];
+            oItem.PhoneNumber = strPhone[nDatCnt];
+            oItem.ProfileImage = intProfileImage[nDatCnt];
+            nDatCnt++;
+
             oData.add(oItem);
             if (nDatCnt >= strName.length) nDatCnt = 0;
         }

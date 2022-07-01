@@ -3,6 +3,8 @@ package com.example.myapplication6;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.OvalShape;
 import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -62,6 +65,31 @@ public class ListAdapter extends BaseAdapter
             convertView = inflater.inflate(R.layout.listview_item, parent, false);
         }
 
+        View clickableItem = (View) convertView.findViewById(R.id.cmdArea);
+
+        clickableItem.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(view.getContext(), ProfileActivity.class);
+
+                intent.putExtra("name",m_oData.get(position).Name);
+                intent.putExtra("number",m_oData.get(position).PhoneNumber);
+                intent.putExtra("image",m_oData.get(position).ProfileImage);
+
+                view.getContext().startActivity(intent);
+
+
+
+            }
+        });
+
+        ImageView oImage = (ImageView) convertView.findViewById(R.id.profileimage);
+
+
+
+
+
         TextView oTextName = (TextView) convertView.findViewById(R.id.textTitle);
         TextView oTextPhone = (TextView) convertView.findViewById(R.id.textDate);
 
@@ -73,23 +101,16 @@ public class ListAdapter extends BaseAdapter
             public void onClick(View view) {
                 Toast.makeText(view.getContext(), m_oData.get(position).Name + "님에게 전화 연결...", Toast.LENGTH_SHORT).show();
 
-
                 Intent intentx = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+m_oData.get(position).PhoneNumber));
                 view.getContext().startActivity(intentx);
 
             }
         });
-/*
-        cmdArea.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(view.getContext(), "Right", Toast.LENGTH_SHORT).show();
-            }
-        });
-*/
 
 
 
+
+        oImage.setImageResource(m_oData.get(position).ProfileImage);
 
         oTextName.setText(m_oData.get(position).Name);
         oTextPhone.setText(m_oData.get(position).PhoneNumber);

@@ -5,19 +5,20 @@
     android:id="@+id/cmdArea"
     android:layout_width="match_parent"
     android:layout_height="80dp"
-    android:background="#FFFFFF">
+    android:background="#FFFFFF"
+    >
 
 
     <TextView
         android:id="@+id/textTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:gravity="center_vertical"
         android:paddingLeft="10dp"
         android:text="이름"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toEndOf="@+id/profileimage"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -28,7 +29,7 @@
         android:gravity="center_vertical"
         android:paddingLeft="10dp"
         android:text="전화번호"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toEndOf="@+id/profileimage"
         app:layout_constraintTop_toBottomOf="@+id/textTitle" />
 
     <Button
@@ -55,14 +56,18 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView2"
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/profileimage"
         android:layout_width="60dp"
         android:layout_height="62dp"
         android:layout_marginStart="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+
         app:srcCompat="@drawable/profile" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

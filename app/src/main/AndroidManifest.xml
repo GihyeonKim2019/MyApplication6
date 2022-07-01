@@ -23,6 +23,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".DrawActivity"></activity>
+        <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".PhotoViewScreen"></activity>
     </application>
 
 </manifest>
