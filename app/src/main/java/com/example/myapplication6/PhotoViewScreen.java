@@ -2,6 +2,7 @@ package com.example.myapplication6;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -23,6 +24,8 @@ public class PhotoViewScreen extends AppCompatActivity {
         PhotoView photoView = findViewById(R.id.photoView);
         photoView.setImageResource(imageRecieved1);
 
+
+
         ImageView backbutton = (ImageView)findViewById(R.id.backbutton);
 
         backbutton.setOnClickListener(new View.OnClickListener(){
@@ -33,5 +36,30 @@ public class PhotoViewScreen extends AppCompatActivity {
         });
 
 
+
+
+    }
+
+    public boolean dispatchTouchEvent(MotionEvent event) {
+
+        ImageView backbutton = (ImageView)findViewById(R.id.backbutton);
+        int shortAnimationDuration;
+
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                if(backbutton.getVisibility() == View.VISIBLE) {
+                    backbutton.setVisibility(View.GONE);
+                }else{backbutton.setVisibility(View.VISIBLE);}
+
+                break;
+
+            case MotionEvent.ACTION_MOVE:
+                backbutton.setVisibility(View.GONE);
+                break;
+            default:
+                break;
+        }
+
+        return super.dispatchTouchEvent(event);
     }
 }

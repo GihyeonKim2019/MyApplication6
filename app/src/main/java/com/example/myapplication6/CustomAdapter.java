@@ -2,6 +2,7 @@ package com.example.myapplication6;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -38,7 +39,7 @@ public class CustomAdapter extends BaseAdapter {
 
         if (convertView==null){
             imageView = new ImageView(mContext);
-            imageView.setLayoutParams(new ViewGroup.LayoutParams(300,300));
+            imageView.setLayoutParams(new ViewGroup.LayoutParams(360,360));
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             imageView.setPadding(0,0,0,0);
         }else{
@@ -54,12 +55,21 @@ public class CustomAdapter extends BaseAdapter {
                 ImageView ivPoster = dialogView.findViewById(R.id.ivPoster);
                 ivPoster.setImageResource(data[position]);
 
-                dlg.setTitle("hi");
+                Intent intent = new Intent(v.getContext(), PhotoViewScreen.class);
+
+                intent.putExtra("image",data[position]);
+
+                v.getContext().startActivity(intent);
+
+                /*dlg.setTitle("hi");
                 dlg.setView(dialogView);
                 dlg.setNegativeButton("닫기",null);
-                dlg.show();
+                dlg.show();*/
             }
         });
+
+
+
 
         return imageView;
     }

@@ -107,6 +107,19 @@ public class ListAdapter extends BaseAdapter
             }
         });
 
+        Button button2 = (Button) convertView.findViewById(R.id.button2);
+
+        button2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intenty = new Intent(Intent.ACTION_VIEW, Uri.parse("smsto:"+m_oData.get(position).PhoneNumber));
+                view.getContext().startActivity(intenty);
+
+            }
+        });
+
+
+
 
 
 
