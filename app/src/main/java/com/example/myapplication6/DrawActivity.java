@@ -112,5 +112,7 @@ public class DrawActivity  extends AppCompatActivity {
         MediaStore.Images.Media.insertImage(this.getContentResolver(), paintView.getmBitmap(), "hi","hello");
     }
 
+    public void onButton4Clicked(View v) {
 
+    }
 }
