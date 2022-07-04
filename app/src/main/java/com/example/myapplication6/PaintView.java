@@ -38,6 +38,7 @@ public class PaintView extends View {
     private int strokeWidth;
     private Bitmap mBitmap;
     private Canvas mCanvas;
+    private ArrayList<Bitmap> bitmaps = new ArrayList<>();
     //private Paint mBitmapPaint = new Paint(Paint.DITHER_FLAG);
 
     Resources res = getResources();
@@ -192,8 +193,13 @@ public class PaintView extends View {
                 found = (tempFile.getName());
                 String path = getContext().getCacheDir()+"/"+found;
                 bitmap = BitmapFactory.decodeFile(path);
+                bitmaps.add(bitmap);
             }
         }
         return bitmap;
+    }
+
+    public ArrayList<Bitmap> getbitmaps() {
+        return bitmaps;
     }
 }
