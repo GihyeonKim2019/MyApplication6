@@ -7,14 +7,20 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.os.Environment;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.graphics.Path;
 
 import androidx.annotation.Nullable;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class PaintView extends View {
@@ -38,8 +44,6 @@ public class PaintView extends View {
     Bitmap yBitmap = BitmapFactory.decodeResource(res, R.drawable.sketch);
 
 
-
-
     public PaintView(Context context) {
         this(context, null);
     }
@@ -58,23 +62,24 @@ public class PaintView extends View {
 
     }
 
-    public void init(DisplayMetrics metrics){
+    public void init(DisplayMetrics metrics) {
         int heigh = metrics.heightPixels;
         int width = metrics.widthPixels;
 
         mBitmap = Bitmap.createBitmap(width, heigh, Bitmap.Config.ARGB_8888);
 
         mCanvas = new Canvas(mBitmap);
-        mCanvas.drawBitmap(yBitmap,100,100,mPaint);
+        mCanvas.drawBitmap(yBitmap, 100, 100, mPaint);
 
         currentColor = DEFAULT_COLOR;
         strokeWidth = BRUSH_SIZE;
     }
-    public void normal(){
+
+    public void normal() {
 
     }
 
-    public void clear(){
+    public void clear() {
         backgroundColor = DEFAULT_BG_COLOR;
         paths.clear();
         normal();
@@ -85,16 +90,16 @@ public class PaintView extends View {
         currentColor = Color.BLACK;
     }
 
-    public void set1_color(int t){
+    public void set1_color(int t) {
         currentColor = t;
     }
 
 
-    protected void onDraw(Canvas canvas){
+    protected void onDraw(Canvas canvas) {
         canvas.save();
         mCanvas.drawColor(backgroundColor);
 
-        for(FingerPath fp : paths){
+        for (FingerPath fp : paths) {
             mPaint.setColor(fp.color);
             mPaint.setStrokeWidth(fp.strokeWideth);
             mPaint.setMaskFilter(null);
@@ -103,7 +108,8 @@ public class PaintView extends View {
         canvas.drawBitmap(mBitmap, 0, 0, mPaint);
         canvas.restore();
     }
-    private void touchStart(float x, float y){
+
+    private void touchStart(float x, float y) {
         mPath = new Path();
         FingerPath fp = new FingerPath(currentColor, strokeWidth, mPath);
         paths.add(fp);
@@ -113,24 +119,27 @@ public class PaintView extends View {
         mX = x;
         mY = y;
     }
-    private void touchMove(float x, float y){
+
+    private void touchMove(float x, float y) {
         float dx = Math.abs(x - mX);
         float dy = Math.abs(y - mY);
 
-        if(dx >= TOUCH_TOLERANCE || dy >= TOUCH_TOLERANCE){
+        if (dx >= TOUCH_TOLERANCE || dy >= TOUCH_TOLERANCE) {
             mPath.quadTo(mX, mY, (x + mX) / 2, (y + mY) / 2);
             mX = x;
             mY = y;
         }
     }
-    private void touchUp(){
+
+    private void touchUp() {
         mPath.lineTo(mX, mY);
     }
+
     public boolean onTouchEvent(MotionEvent event) {
         float x = event.getX();
         float y = event.getY();
 
-        switch (event.getAction()){
+        switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 touchStart(x, y);
                 invalidate();
@@ -148,4 +157,43 @@ public class PaintView extends View {
         return true;
     }
 
+    public void saveBitmapToJpeg(Bitmap bitmap, String name) {
+        //String ex_storage = Environment.getExternalStorageDirectory().getAbsolutePath();
+        File storage = (getContext()).getCacheDir();
+        String fileName = name;
+        try {
+            File tempFile = new File(storage, fileName);
+            tempFile.createNewFile();
+
+            FileOutputStream out = new FileOutputStream(tempFile);
+
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, out);
+            out.close();
+        } catch (FileNotFoundException exception) {
+            Log.e("FileNotFoundException", exception.getMessage());
+        } catch (IOException exception) {
+            Log.e("IOException", exception.getMessage());
+        }
+    }
+
+    public Bitmap getmBitmap() {
+        return mBitmap;
+    }
+
+    public Bitmap getBitmapFromCache(String key) {
+        String found = null;
+        Bitmap bitmap = null;
+
+        File file = new File(getContext().getCacheDir().toString());
+        File[] files = file.listFiles();
+
+        for(File tempFile : files) {
+            if (tempFile.getName().contains(key)) {
+                found = (tempFile.getName());
+                String path = getContext().getCacheDir()+"/"+found;
+                bitmap = BitmapFactory.decodeFile(path);
+            }
+        }
+        return bitmap;
+    }
 }
