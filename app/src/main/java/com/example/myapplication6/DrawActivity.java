@@ -28,7 +28,6 @@ import com.skydoves.colorpickerview.listeners.ColorEnvelopeListener;
 public class DrawActivity  extends AppCompatActivity {
     public PaintView paintView;
     private ImageButton mClearBtn;
-    TextView colorTextView;
     View colorView;
     ImageView pic1;
 
@@ -36,19 +35,14 @@ public class DrawActivity  extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_draw);
-        //paintView = new PaintView(this);
-       // colorTextView = findViewById(R.id.color_text_view);
 
         colorView = findViewById(R.id.color_view);
-
-        pic1 = (ImageView)findViewById(R.id.pic1);
-
+        paintView = (PaintView) findViewById(R.id.paintview);
 
         ColorPickerView colorPickerView = findViewById(R.id.colorPickerView);
         colorPickerView.setColorListener(new ColorEnvelopeListener() {
             @Override
             public void onColorSelected(ColorEnvelope envelope, boolean fromUser) {
-                //colorTextView.setText(envelope.getHexCode());
                 colorView.setBackgroundColor(envelope.getColor());
                 paintView.set1_color(envelope.getColor());
             }
@@ -64,7 +58,7 @@ public class DrawActivity  extends AppCompatActivity {
         });
 
 
-        paintView = (PaintView) findViewById(R.id.paintview);
+
         DisplayMetrics metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getRealMetrics(metrics);
         paintView.init(metrics);

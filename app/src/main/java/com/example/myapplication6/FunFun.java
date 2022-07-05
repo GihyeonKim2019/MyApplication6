@@ -1,6 +1,8 @@
 package com.example.myapplication6;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -11,19 +13,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.github.chrisbanes.photoview.PhotoView;
 
-public class PhotoViewScreen extends AppCompatActivity {
+public class FunFun extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.photoview);
-
-        Intent intent = getIntent();
-
-        int imageRecieved1 = intent.getIntExtra("image",0);
+        setContentView(R.layout.activity_funfun);
 
 
-        PhotoView photoView = findViewById(R.id.photoView);
-        photoView.setImageResource(imageRecieved1);
+
+        Bitmap b = BitmapFactory.decodeByteArray(getIntent().getByteArrayExtra("byteArray"),0,getIntent().getByteArrayExtra("byteArray").length);
+
+
+        PhotoView funfun = findViewById(R.id.funfun);
+        funfun.setImageBitmap(b);
 
 
 

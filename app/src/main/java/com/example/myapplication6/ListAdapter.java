@@ -3,6 +3,7 @@ package com.example.myapplication6;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
 import android.net.Uri;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 
 import com.example.myapplication6.ItemData;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 public class ListAdapter extends BaseAdapter
@@ -73,9 +75,15 @@ public class ListAdapter extends BaseAdapter
 
                 Intent intent = new Intent(view.getContext(), ProfileActivity.class);
 
+                Bitmap b = m_oData.get(position).ProfileImage; // your bitmap
+                ByteArrayOutputStream bs = new ByteArrayOutputStream();
+                b.compress(Bitmap.CompressFormat.PNG, 50, bs);
+                intent.putExtra("image", bs.toByteArray());
+
                 intent.putExtra("name",m_oData.get(position).Name);
                 intent.putExtra("number",m_oData.get(position).PhoneNumber);
-                intent.putExtra("image",m_oData.get(position).ProfileImage);
+                //intent.putExtra("image",m_oData.get(position).ProfileImage);
+
 
                 view.getContext().startActivity(intent);
 
@@ -85,11 +93,6 @@ public class ListAdapter extends BaseAdapter
         });
 
         ImageView oImage = (ImageView) convertView.findViewById(R.id.profileimage);
-
-
-
-
-
         TextView oTextName = (TextView) convertView.findViewById(R.id.textTitle);
         TextView oTextPhone = (TextView) convertView.findViewById(R.id.textDate);
 
@@ -119,12 +122,7 @@ public class ListAdapter extends BaseAdapter
         });
 
 
-
-
-
-
-        oImage.setImageResource(m_oData.get(position).ProfileImage);
-
+        oImage.setImageBitmap(m_oData.get(position).ProfileImage);
         oTextName.setText(m_oData.get(position).Name);
         oTextPhone.setText(m_oData.get(position).PhoneNumber);
         return convertView;
