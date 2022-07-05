@@ -1,23 +1,13 @@
 package com.example.myapplication6;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.media.Image;
-import android.net.DnsResolver;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.Toast;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
@@ -25,23 +15,46 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
 
 public class ImageActivity extends AppCompatActivity {
-    private ActivityResultLauncher<Intent> resultLauncher;
-    private ImageView imageView;
-    private ListView list;
-    ImageView pic2;
-
+    ImageView imageView;
+    Button button;
     @Override
     protected void onCreate(Bundle savedIntanceState) {
         super.onCreate(savedIntanceState);
         setContentView(R.layout.activity_image);
-
-
+        imageView = (ImageView) findViewById(R.id.imgView);
+        button = (Button) findViewById(R.id.button5);
     }
+
+    public void onButton_imageClicked(View v) {
+        Intent intent = new Intent(Intent.ACTION_PICK);
+        intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
+        intent.setAction(Intent.ACTION_PICK);
+        activityResultLauncher.launch(intent);
+    }
+
+    ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if(result.getResultCode() == RESULT_OK) {
+                        Intent intent = result.getData();
+                        Uri uri = intent.getData();
+                        try {
+                            Bitmap bm = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+                            imageView.setImageBitmap(bm);
+                        } catch (FileNotFoundException exception) {
+                            exception.printStackTrace();
+                        } catch (IOException exception) {
+                            exception.printStackTrace();
+                        }
+                    }
+                }
+            }
+    );
+
 }

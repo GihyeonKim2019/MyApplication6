@@ -134,12 +134,4 @@
         app:layout_constraintBottom_toTopOf="@+id/red"
         app:layout_constraintStart_toEndOf="@+id/colorPickerView" />
 
-    <ImageView
-        android:id="@+id/pic1"
-        android:layout_width="199dp"
-        android:layout_height="195dp"
-        app:layout_constraintBottom_toBottomOf="@+id/paintview"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/basicprofile" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
