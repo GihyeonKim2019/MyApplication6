@@ -41,7 +41,9 @@ public class DrawActivity  extends AppCompatActivity {
        // colorTextView = findViewById(R.id.color_text_view);
 
         colorView = findViewById(R.id.color_view);
-        pic1 = findViewById(R.id.imageView2);
+        //pic1 = findViewById(R.id.imageView2);
+
+
         ColorPickerView colorPickerView = findViewById(R.id.colorPickerView);
 
         colorPickerView.setColorListener(new ColorEnvelopeListener() {

@@ -1,6 +1,7 @@
 package com.example.myapplication6;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -38,6 +39,17 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
         ImageView backbutton = (ImageView)findViewById(R.id.backbutton);
+        ImageView circle2 = (ImageView)findViewById(R.id.circle2);
+        ImageView circle3 = (ImageView)findViewById(R.id.circle3);
+        ImageView circle4 = (ImageView)findViewById(R.id.circle4);
+        ImageView circle = (ImageView)findViewById(R.id.circle);
+        ImageView circle5 = (ImageView)findViewById(R.id.circle5);
+        ImageView circle6 = (ImageView)findViewById(R.id.circle6);
+
+        imgv.bringToFront();
+        backbutton.bringToFront();
+        nameText.bringToFront();
+        numberText.bringToFront();
 
         backbutton.setOnClickListener(new View.OnClickListener(){
             @Override
