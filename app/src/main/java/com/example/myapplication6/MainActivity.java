@@ -1,9 +1,17 @@
 package com.example.myapplication6;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.media.Image;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,13 +19,17 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -26,6 +38,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     private ViewPager2 viewPager2;
     private TabLayout tabLayout;
+    ImageView imageView;
 
     private int[] tabIcons = {
             R.drawable.ic_baseline_contacts_24,
@@ -64,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         ViewPager2Adapter viewPager2Adapter = new ViewPager2Adapter(this, fragments);
         viewPager2.setAdapter(viewPager2Adapter);
 
-
+        imageView = (ImageView) findViewById(R.id.imgView);
 
         final List<String> tabElement = Arrays.asList("Tab1","Tab2","Tab3");
 
@@ -110,6 +123,37 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, DrawActivity.class);
         startActivity(intent);
     }
+    public void onButton4Clicked(View v) {
+        Intent intent = new Intent(this, ImageActivity.class);
+        startActivity(intent);
+    }
+//    public void onButton4Clicked(View v) {
+//        Intent intent = new Intent(Intent.ACTION_PICK);
+//        intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
+//        intent.setAction(Intent.ACTION_PICK);
+//        activityResultLauncher.launch(intent);
+//    }
+//
+//    ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(
+//            new ActivityResultContracts.StartActivityForResult(),
+//            new ActivityResultCallback<ActivityResult>() {
+//                @Override
+//                public void onActivityResult(ActivityResult result) {
+//                    if(result.getResultCode() == RESULT_OK) {
+//                        Intent intent = result.getData();
+//                        Uri uri = intent.getData();
+//                        try {
+//                            Bitmap bm = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+//                            imageView.setImageBitmap(bm);
+//                        } catch (FileNotFoundException exception) {
+//                            exception.printStackTrace();
+//                        } catch (IOException exception) {
+//                            exception.printStackTrace();
+//                        }
+//                    }
+//                }
+//            }
+//    );
 
 
 }
