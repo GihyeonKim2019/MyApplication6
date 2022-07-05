@@ -31,13 +31,8 @@ public class ProfileActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent intent = new Intent(view.getContext(), PhotoViewScreen.class);
-
                 intent.putExtra("image",imageRecieved);
-
                 view.getContext().startActivity(intent);
-
-
-
 
             }
         });

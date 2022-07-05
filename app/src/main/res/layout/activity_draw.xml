@@ -54,10 +54,10 @@
         android:id="@+id/imageView_bottom"
         android:layout_width="match_parent"
         android:layout_height="10dp"
-        android:layout_marginTop="564dp"
+        android:layout_marginBottom="30dp"
         android:background="@color/pink"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/red"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
     <!--    <TextView-->
 <!--        android:layout_width="200dp"-->
@@ -71,9 +71,8 @@
 
     <ImageView
         android:id="@+id/imageView_white"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="572dp"
+        android:layout_width="414dp"
+        android:layout_height="105dp"
         android:background="@color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView_bottom" />
@@ -133,5 +132,15 @@
         android:layout_marginBottom="-12dp"
         app:layout_constraintBottom_toTopOf="@+id/red"
         app:layout_constraintStart_toEndOf="@+id/colorPickerView" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="68dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
