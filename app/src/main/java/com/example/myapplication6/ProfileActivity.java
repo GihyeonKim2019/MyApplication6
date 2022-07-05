@@ -30,7 +30,7 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(view.getContext(), PhotoViewScreen.class);
+                Intent intent = new Intent(view.getContext(), FunFunFun.class);
 
                 intent.putExtra("image",imageRecieved);
 

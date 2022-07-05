@@ -29,6 +29,7 @@
         <activity android:name=".ProfileActivity"></activity>
         <activity android:name=".PhotoViewScreen"></activity>
         <activity android:name=".ImageActivity"></activity>
+        <activity android:name=".FunFunFun"></activity>
     </application>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>

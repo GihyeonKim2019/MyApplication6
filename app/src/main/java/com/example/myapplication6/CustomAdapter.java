@@ -58,6 +58,7 @@ public class CustomAdapter extends BaseAdapter {
                 Intent intent = new Intent(v.getContext(), PhotoViewScreen.class);
 
                 intent.putExtra("image",data[position]);
+                intent.putExtra("posi", position);
                 intent.putExtra("datalist",data);
 
                 v.getContext().startActivity(intent);

@@ -25,12 +25,18 @@ public class PhotoViewScreen extends AppCompatActivity{
     private RecyclerView mRecyclerView;
     private MyRecyclerAdapter mRecyclerAdapter;
     private ArrayList<RecyclerData> mfriendItems;
-    private SnapHelper snapHelper;
+    private SnapHelper msnapHelper;
+    private SnapHelper tsnapHelper;
     private LinearLayoutManager mLayoutManager;
     private RecyclerDecoration spaceDecoration = new RecyclerDecoration(0);
     private LinearLayoutManager xLayoutManager;
+    private LinearLayoutManager tLayoutManager;
+    private TRecyclerAdapter tRecyclerAdapter;
 
     int currentPosition = RecyclerView.NO_POSITION;
+
+    private RecyclerView tRecyclerView;
+
 
 
 
@@ -48,6 +54,15 @@ public class PhotoViewScreen extends AppCompatActivity{
         xLayoutManager.scrollToPositionWithOffset(position,centerOfScreen);
     }
 
+    public void HappyGo(int position) {
+        int centerOfScreen = mRecyclerView.getWidth() / 2 -90;
+        xLayoutManager.scrollToPositionWithOffset(position, centerOfScreen);
+    }
+
+    public void PleaseGo(int position) {
+        tLayoutManager.scrollToPosition(position);
+    }
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,11 +71,10 @@ public class PhotoViewScreen extends AppCompatActivity{
         Intent intent = getIntent();
 
         int imageRecieved1 = intent.getIntExtra("image",0);
-
         int[] listRecieved1 = intent.getIntArrayExtra("datalist");
+        int posi = intent.getIntExtra("posi",0);
 
-        PhotoView photoView = findViewById(R.id.photoView);
-        photoView.setImageResource(imageRecieved1);
+
 
 
 
@@ -80,6 +94,16 @@ public class PhotoViewScreen extends AppCompatActivity{
         mLayoutManager = new LinearLayoutManager(this);
         xLayoutManager = new LinearLayoutManager(getApplicationContext(), RecyclerView.HORIZONTAL,false);
 
+        tRecyclerView = (RecyclerView) findViewById(R.id.trecyclerview);
+        tRecyclerAdapter = new TRecyclerAdapter();
+
+        tLayoutManager = new LinearLayoutManager(getApplicationContext(), RecyclerView.HORIZONTAL,false);
+
+        tRecyclerView.setAdapter(tRecyclerAdapter);
+
+        tRecyclerView.setLayoutManager(tLayoutManager);
+
+
 
 
 
@@ -95,10 +119,17 @@ public class PhotoViewScreen extends AppCompatActivity{
         mRecyclerAdapter.setOnItemClickListener(new OnPersonItemClickListener() {
             @Override
             public void onItemClick(MyRecyclerAdapter.ViewHolder holder, View view, int position) {
-                Toast.makeText(getApplicationContext(), Integer.toString(position), Toast.LENGTH_SHORT).show();
+
                 GotoThere(position, view);
+                PleaseGo(position);
             }
         });
+
+
+
+
+
+
 
 
 
@@ -120,12 +151,37 @@ public class PhotoViewScreen extends AppCompatActivity{
                     int lastVisibleItemPosition = xLayoutManager.findLastVisibleItemPosition();
                     if (firstVisibleItemPosition == -1) {
                         mRecyclerView.setLayoutManager(xLayoutManager);
+                    }else{
+                        if (lastVisibleItemPosition - firstVisibleItemPosition == 6) {
+                            PleaseGo(firstVisibleItemPosition+3);
+                        }
+                        else if (lastVisibleItemPosition - firstVisibleItemPosition == 5){
+                            PleaseGo(firstVisibleItemPosition+3);
+                        }
                     }
-                    Toast.makeText(getApplicationContext(),Integer.toString(firstVisibleItemPosition)+", "+Integer.toString(lastVisibleItemPosition),Toast.LENGTH_SHORT).show();
 
 
                 }
 
+            }
+        });
+        tRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener(){
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+
+                    int firstVisibleItemPosition = tLayoutManager.findFirstVisibleItemPosition();
+                    int lastVisibleItemPosition = tLayoutManager.findLastVisibleItemPosition();
+                    if (firstVisibleItemPosition == -1) {
+                        tRecyclerView.setLayoutManager(tLayoutManager);
+                    }else{
+                        HappyGo(firstVisibleItemPosition);
+                    }
+
+
+
+                }
             }
         });
 
@@ -140,8 +196,18 @@ public class PhotoViewScreen extends AppCompatActivity{
 
         mRecyclerAdapter.setFriendList(mfriendItems);
 
-        snapHelper = new LinearSnapHelper();
-        snapHelper.attachToRecyclerView(mRecyclerView);
+        msnapHelper = new LinearSnapHelper();
+        msnapHelper.attachToRecyclerView(mRecyclerView);
+
+        tsnapHelper = new LinearSnapHelper();
+
+        tsnapHelper.attachToRecyclerView(tRecyclerView);
+
+        tRecyclerAdapter.setFriendList(mfriendItems);
+
+
+        PleaseGo(posi);
+        HappyGo(posi);
 
 
 
