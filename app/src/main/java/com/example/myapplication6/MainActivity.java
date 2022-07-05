@@ -127,33 +127,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ImageActivity.class);
         startActivity(intent);
     }
-//    public void onButton4Clicked(View v) {
-//        Intent intent = new Intent(Intent.ACTION_PICK);
-//        intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
-//        intent.setAction(Intent.ACTION_PICK);
-//        activityResultLauncher.launch(intent);
-//    }
-//
-//    ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(
-//            new ActivityResultContracts.StartActivityForResult(),
-//            new ActivityResultCallback<ActivityResult>() {
-//                @Override
-//                public void onActivityResult(ActivityResult result) {
-//                    if(result.getResultCode() == RESULT_OK) {
-//                        Intent intent = result.getData();
-//                        Uri uri = intent.getData();
-//                        try {
-//                            Bitmap bm = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
-//                            imageView.setImageBitmap(bm);
-//                        } catch (FileNotFoundException exception) {
-//                            exception.printStackTrace();
-//                        } catch (IOException exception) {
-//                            exception.printStackTrace();
-//                        }
-//                    }
-//                }
-//            }
-//    );
 
 
 }

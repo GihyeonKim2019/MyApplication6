@@ -28,6 +28,7 @@ import com.skydoves.colorpickerview.listeners.ColorEnvelopeListener;
 public class DrawActivity  extends AppCompatActivity {
     public PaintView paintView;
     private ImageButton mClearBtn;
+    ImageButton mButton;
     TextView colorTextView;
     View colorView;
     ImageView pic1;
@@ -44,6 +45,7 @@ public class DrawActivity  extends AppCompatActivity {
 
 
         ColorPickerView colorPickerView = findViewById(R.id.colorPickerView);
+
         colorPickerView.setColorListener(new ColorEnvelopeListener() {
             @Override
             public void onColorSelected(ColorEnvelope envelope, boolean fromUser) {
@@ -62,6 +64,15 @@ public class DrawActivity  extends AppCompatActivity {
             }
         });
 
+        mButton = (ImageButton) findViewById(R.id.done_btn);
+        mButton.setOnClickListener(new View.OnClickListener()  {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "저장하기", Toast.LENGTH_LONG).show();
+                paintView.saveBitmapToJpeg(paintView.getmBitmap(), "picture1");
+                MediaStore.Images.Media.insertImage(getContentResolver(), paintView.getmBitmap(), "hi","hello");
+            }
+        });
 
         paintView = (PaintView) findViewById(R.id.paintview);
         DisplayMetrics metrics = new DisplayMetrics();
@@ -74,12 +85,9 @@ public class DrawActivity  extends AppCompatActivity {
     }
 
     // 그림 저장 버튼 눌렀을 때 갤러리로 저장
-    public void onButton_done_Clicked(View v) {
-        Toast.makeText(this,"저장하기", Toast.LENGTH_LONG).show();
-        paintView.saveBitmapToJpeg(paintView.getmBitmap() ,"picture1" );
-        pic1.setImageBitmap(paintView.getBitmapFromCache("picture1"));
-
-        MediaStore.Images.Media.insertImage(this.getContentResolver(), paintView.getmBitmap(), "hi","hello");
-    }
-
+//    public void onButton_done_Clicked(View v) {
+//        Toast.makeText(this, "저장하기", Toast.LENGTH_LONG).show();
+//        paintView.saveBitmapToJpeg(paintView.getmBitmap(), "picture1");
+//        pic1.setImageBitmap(paintView.getBitmapFromCache("picture1"));
+//    }
 }

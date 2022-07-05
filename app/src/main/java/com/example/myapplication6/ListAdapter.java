@@ -85,11 +85,6 @@ public class ListAdapter extends BaseAdapter
         });
 
         ImageView oImage = (ImageView) convertView.findViewById(R.id.profileimage);
-
-
-
-
-
         TextView oTextName = (TextView) convertView.findViewById(R.id.textTitle);
         TextView oTextPhone = (TextView) convertView.findViewById(R.id.textDate);
 

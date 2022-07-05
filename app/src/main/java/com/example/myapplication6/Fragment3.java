@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -20,7 +21,6 @@ import java.util.ArrayList;
 
 
 public class Fragment3 extends Fragment {
-
 
     public static Fragment3 newInstance(int number) {
         Fragment3 fragment3 = new Fragment3();

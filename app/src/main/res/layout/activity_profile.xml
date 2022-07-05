@@ -70,6 +70,65 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/circle"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="216dp"
+        android:layout_marginTop="248dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/circle2" />
+
+    <ImageView
+        android:id="@+id/circle2"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/circle_blue" />
+
+    <ImageView
+        android:id="@+id/circle3"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="204dp"
+        android:layout_marginEnd="19dp"
+        app:layout_constraintEnd_toStartOf="@+id/name"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/circle_yellow" />
+
+    <ImageView
+        android:id="@+id/circle4"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="296dp"
+        android:layout_marginTop="568dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/circle_pink" />
+
+    <ImageView
+        android:id="@+id/circle5"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="448dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/circle_green" />
+
+    <ImageView
+        android:id="@+id/circle6"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="688dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/circle_blue" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

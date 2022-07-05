@@ -54,10 +54,10 @@
         android:id="@+id/imageView_bottom"
         android:layout_width="match_parent"
         android:layout_height="10dp"
-        android:layout_marginTop="564dp"
+        android:layout_marginBottom="30dp"
         android:background="@color/pink"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/red"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
     <!--    <TextView-->
 <!--        android:layout_width="200dp"-->
@@ -71,9 +71,8 @@
 
     <ImageView
         android:id="@+id/imageView_white"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="572dp"
+        android:layout_width="414dp"
+        android:layout_height="105dp"
         android:background="@color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView_bottom" />
@@ -88,6 +87,17 @@
         android:onClick="change_to_black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/eraser_img_btn" />
+
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="62dp"
+        android:layout_height="73dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginBottom="8dp"
+        android:rotation="-13"
+        app:layout_constraintBottom_toTopOf="@+id/imageView_bottom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/one2" />
 
     <ImageButton
         android:id="@+id/done_btn"
@@ -133,5 +143,65 @@
         android:layout_marginBottom="-12dp"
         app:layout_constraintBottom_toTopOf="@+id/red"
         app:layout_constraintStart_toEndOf="@+id/colorPickerView" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="62dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="272dp"
+        android:layout_marginBottom="8dp"
+        android:rotation="34"
+        android:rotationY="-2"
+        app:layout_constraintBottom_toTopOf="@+id/imageView_bottom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/one4" />
+
+    <ImageView
+        android:id="@+id/imageView17"
+        android:layout_width="165dp"
+        android:layout_height="92dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:srcCompat="@drawable/mine" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="52dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="236dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView_white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/one1" />
+
+    <ImageView
+        android:id="@+id/imageView13"
+        android:layout_width="160dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginBottom="8dp"
+        android:rotation="-13"
+        app:layout_constraintBottom_toBottomOf="@+id/paintview"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/hello" />
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="76dp"
+        android:layout_height="82dp"
+        android:rotation="26"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/heart3" />
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="62dp"
+        android:layout_height="69dp"
+        android:layout_marginEnd="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/heart" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
