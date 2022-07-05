@@ -89,29 +89,11 @@ public class ListAdapter extends BaseAdapter
         TextView oTextPhone = (TextView) convertView.findViewById(R.id.textDate);
 
 
-        Button button1 = (Button) convertView.findViewById(R.id.button);
 
-        button1.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(view.getContext(), m_oData.get(position).Name + "님에게 전화 연결...", Toast.LENGTH_SHORT).show();
 
-                Intent intentx = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+m_oData.get(position).PhoneNumber));
-                view.getContext().startActivity(intentx);
 
-            }
-        });
 
-        Button button2 = (Button) convertView.findViewById(R.id.button2);
 
-        button2.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                Intent intenty = new Intent(Intent.ACTION_VIEW, Uri.parse("smsto:"+m_oData.get(position).PhoneNumber));
-                view.getContext().startActivity(intenty);
-
-            }
-        });
 
 
 

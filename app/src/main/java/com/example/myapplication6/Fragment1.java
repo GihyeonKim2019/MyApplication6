@@ -43,9 +43,9 @@ public class Fragment1 extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment1, container, false);
 
-        String[] strName = {"박강우", "김기현", "김성혁", "김성애"};
-        String[] strPhone = {"010-1234-5678", "010-2345-6789", "010-4455-6677", "010-3941-9805"};
-        int[] intProfileImage = {R.drawable.emoji_1, R.drawable.emoji_2, R.drawable.emoji_3, R.drawable.emoji_4};
+        String[] strName = {"박강우", "김기현","김예은", "김성혁", "김성애","최경호"};
+        String[] strPhone = {"010-1234-5678", "010-2345-6789", "010-4455-6677", "010-3941-9805","010-2918-9294","010-2949-1132"};
+        int[] intProfileImage = {R.drawable.people_cha, R.drawable.people_chae, R.drawable.people_jang, R.drawable.people_ar, R.drawable.people_yu, R.drawable.people_chae};
         int nDatCnt=0;
         ArrayList<ItemData> oData = new ArrayList<>();
 

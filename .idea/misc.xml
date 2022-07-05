@@ -3,11 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-<<<<<<< HEAD
         <entry key="..\:/Users/Admin/AndroidStudioProjects/MyApplication17/app/src/main/res/drawable/ic_back.xml" value="0.1935" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/MyApplication17/app/src/main/res/drawable/ic_baseline_call_24.xml" value="0.324" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/MyApplication17/app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.1935" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/MyApplication17/app/src/main/res/drawable/ic_baseline_mail_outline_24.xml" value="0.197" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/MyApplication17/app/src/main/res/drawable/shape_for_circle_button.xml" value="0.1925" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/MyApplication17/app/src/main/res/layout/activity_draw.xml" value="0.19635416666666666" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/MyApplication17/app/src/main/res/layout/activity_funfunfun.xml" value="0.25982905982905985" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/MyApplication17/app/src/main/res/layout/activity_profile.xml" value="0.22" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/MyApplication17/app/src/main/res/layout/dialog.xml" value="0.3569230769230769" />
@@ -23,25 +24,11 @@
         <entry key="..\:/Users/Admin/AndroidStudioProjects/MyApplication6/app/src/main/res/layout/fragment1.xml" value="0.22" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/MyApplication6/app/src/main/res/layout/fragment2.xml" value="0.3614583333333333" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/MyApplication6/app/src/main/res/layout/fragment3.xml" value="0.3614583333333333" />
-=======
-        <entry key="../../../../../layout/custom_preview.xml" value="0.1" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/MyApplication6/app/src/main/res/layout/activity_main.xml" value="0.34791666666666665" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/MyApplication6/app/src/main/res/layout/fragment1.xml" value="0.3614583333333333" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/MyApplication6/app/src/main/res/layout/fragment2.xml" value="0.3614583333333333" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/MyApplication6/app/src/main/res/layout/fragment3.xml" value="0.3614583333333333" />
-        <entry key="app/src/main/res/font/font.xml" value="0.21666666666666667" />
-        <entry key="app/src/main/res/layout/acitivity_image.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_draw.xml" value="0.1946655273437501" />
-        <entry key="app/src/main/res/layout/activity_funfun.xml" value="0.38697916666666665" />
-        <entry key="app/src/main/res/layout/activity_image.xml" value="0.1" />
->>>>>>> e9b33977dfb275d07db1ad5ca368fb0896309fff
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment1.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment2.xml" value="0.165" />
-        <entry key="app/src/main/res/layout/fragment3.xml" value="0.2320675105485232" />
+        <entry key="app/src/main/res/layout/fragment3.xml" value="0.13541666666666666" />
         <entry key="app/src/main/res/layout/listview_item.xml" value="0.335" />
-        <entry key="app/src/main/res/layout/photoview.xml" value="0.1" />
       </map>
     </option>
   </component>

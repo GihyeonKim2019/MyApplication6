@@ -53,9 +53,9 @@ public class Fragment2 extends Fragment {
             int num = getArguments().getInt("number");
         }
     }
-    private int[] data = { R.drawable.land_1, R.drawable.land_2, R.drawable.land_3, R.drawable.land_4,
-            R.drawable.land_5, R.drawable.land_6, R.drawable.land_7, R.drawable.land_8, R.drawable.land_9,
-            R.drawable.land_10, R.drawable.land_11, R.drawable.land_12, R.drawable.land_13};
+    private int[] data = { R.drawable.land_1, R.drawable.land_14, R.drawable.land_15, R.drawable.land_4,
+            R.drawable.land_16, R.drawable.land_6, R.drawable.land_7, R.drawable.land_8, R.drawable.land_9,
+            R.drawable.land_10, R.drawable.land_11, R.drawable.land_12, R.drawable.land_13, R.drawable.land_3, R.drawable.land_2, R.drawable.land_5};
 
     private CustomAdapter adapter = null;
     private GridView gv = null;

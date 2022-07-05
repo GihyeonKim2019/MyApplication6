@@ -13,10 +13,13 @@
         android:id="@+id/textTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="12dp"
         android:gravity="center_vertical"
         android:paddingLeft="10dp"
         android:text="이름"
+        android:textColor="#000000"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/profileimage"
         app:layout_constraintTop_toTopOf="parent" />
@@ -25,50 +28,35 @@
         android:id="@+id/textDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="3dp"
         android:gravity="center_vertical"
         android:paddingLeft="10dp"
         android:text="전화번호"
+        android:textColor="#000000"
         app:layout_constraintStart_toEndOf="@+id/profileimage"
         app:layout_constraintTop_toBottomOf="@+id/textTitle" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="53dp"
-        android:layout_height="54dp"
-        android:backgroundTint="#008000"
-        android:onClick="onButton1Clicked"
-
-        app:icon="@drawable/ic_baseline_call_24"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="54dp"
-        android:layout_height="54dp"
-        android:layout_marginEnd="16dp"
-        android:backgroundTint="#FFA500"
-        android:onClick="onButton2Clicked"
-
-        app:icon="@drawable/ic_baseline_mail_24"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-
 
     <de.hdodenhof.circleimageview.CircleImageView
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/profileimage"
         android:layout_width="60dp"
         android:layout_height="62dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
 
         app:srcCompat="@drawable/profile" />
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="3dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="15dp"
+        android:background="@color/pink"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/profileimage"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
